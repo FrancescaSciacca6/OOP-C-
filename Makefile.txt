@@ -1,0 +1,29 @@
+# LINUX (ALSO IN WSL):
+# cd location_of_your_project
+# make 			<- run first "all"
+# make clean	<- run "clean"
+# ./main
+# 
+# WINDOWS:
+# cd "location_of_your_project"
+# mingw32-make			<- run first "all"
+# mingw32-make clean	<- run "clean"
+# ./main.exe
+
+all: main.o phoneBook.o voice.o businessVoice.o  
+	g++ main.o phoneBook.o voice.o businessVoice.o -o main
+
+main.o: main.cpp
+	g++ -c main.cpp
+
+phoneBook.o: phoneBook.cpp
+	g++ -c phoneBook.cpp
+
+voice.o: voice.cpp
+	g++ -c voice.cpp
+
+businessVoice.o: businessVoice.cpp
+	g++ -c businessVoice.cpp
+
+clean:
+	rm main.o phoneBook.o voice.o businessVoice.o
